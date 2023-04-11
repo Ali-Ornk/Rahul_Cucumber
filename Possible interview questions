@@ -1,0 +1,5 @@
+What is major difference between junit runner and TestNG runner?
+in junit :
+we use @RunWith(Cucumber.class) annotation
+in testNG we extend abstract class named  AbstractTestNGCucumberTests
+

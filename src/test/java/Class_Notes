@@ -1,0 +1,44 @@
+ If we gonna use same steps we dont need to create step definition all the time
+ We can use same definition. If we change or add a new step we should create new definition
+
+
+
+
+
+ @When User sign up  with with following details
+    | Jenny | abcd | John@abdc.com | Australia | 3242353|   // for creating data table we need to put " | " between,beginning and end of datas
+
+      @When("^User sign up  with with following details$")
+        public void user_sign_up_with_with_following_details(DataTable data){ //when we create step definition we should call "Datatable" and name it
+                                                               //Datatable should be "io.cucumber.Datatable" not the other one
+
+         List<List<String>> obj= dataTable.asLists();   //return type must be " List<List<String>>" and asLists() option should have same thing
+          System.out.println(obj.get(0).get(0));       //first "get" gets the raw, second "get" gets the element in the given index from selected raw
+        }
+
+
+
+
+
+  @When User login into application with "jin" and password "1234" // if we create a step like that
+
+           @When("^User login into application with \"([^\"]*)\" and password \"([^\"]*)\"$")
+             public void user_login_into_application_with_something_and_password_something(String strArg1, String strArg2 ){
+             //we have to define appropriate variable type in the step definition method
+
+     NOTE: For defining a data in steps(feature file) we have to put data in "double quotes "
+
+
+Parameterization :
+
+      Scenario Outline: Home page default login //for testing more data we should have  "Scenario Outline:" not just  Scenario:
+         Given User is on landing page
+         When User login into application with <Username> and password <password>   // by putting " <> " we should define names we gave into @When
+         Then Home page is populated
+         And Cards are "true"
+         Examples:    //we have to have "Example:" part
+           |Username  | password|   //We have to give name to raws
+           |user1     | pass1   |
+           |user2     | pass2  |
+           |user3     | pass3   |
+           |user4     | pass4   |
