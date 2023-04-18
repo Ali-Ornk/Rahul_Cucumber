@@ -42,3 +42,28 @@ Parameterization :
            |user2     | pass2  |
            |user3     | pass3   |
            |user4     | pass4   |
+
+
+
+           Background:       //it is like beforeclass method. it will run  at first before each test. each feature file has to have own "Background:"
+                             //"Background:" has to be on the top of feature file
+             Given validate the browser
+             When Browser is triggered
+             Then check if the browser is started
+
+NOTE:  Background:  and Hooks can NOT be used together. if a feature file Background it cant have Hooks
+
+             Hooks is like before method and  @Before should be imported from "io.cucumber.java.Before;"
+
+             We have to open a class in Step definitions
+             how we wirte a method:
+
+             @Before("@MobileTest")   //in brackets we should define that @Before method will for which type of feature/step
+               public void beforeValidiation(){
+                    //code block
+                 }
+
+
+
+
+

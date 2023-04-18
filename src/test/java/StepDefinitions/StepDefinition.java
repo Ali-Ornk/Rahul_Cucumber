@@ -26,6 +26,20 @@ public class StepDefinition {
         System.out.println("Given is running");
 
     }
+    @Given("^validate the browser$")
+    public void validate_the_browser() {
+        System.out.println("validate the browser$");
+    }
+
+    @When("^Browser is triggered$")
+    public void browser_is_triggered()  {
+        System.out.println("^Browser is triggered$");
+    }
+
+    @Then("^check if the browser is started$")
+    public void check_if_the_browser_is_started() {
+        System.out.println("check if the browser is started$");
+    }
 
     @When("^User login into application with username and password$")
     public void user_login_into_application_with_username_and_password()  {
@@ -42,7 +56,7 @@ public class StepDefinition {
 
 
     @When("^User sign up with following details$")
-    //                                             Datatable type should be "io.cucumber.Datatable" not the other one
+    //                                             Datatable type should be "io.cucumber.datatable" not the other one
     public void user_sign_up_with_following_details(DataTable dataTable) {
        List<List<String>> obj= dataTable.asLists();//return type is  "List<List<String>>" and .aslist() should have same, i mean " List<List<String>>
         System.out.println(obj.get(0).get(0));  //first "get" gets the raw, second "get" gets the element in the given index from selected raw
@@ -71,6 +85,10 @@ public class StepDefinition {
     public void cards_are(String string) {
         // Write code here that turns the phrase above into concrete actions
         System.out.println("Cards are {string}");
+    }
+    @Then("^Home page is populate$")
+    public void home_page_is_populate()  {
+        System.out.println("oznur abla icin");
     }
 
 }
